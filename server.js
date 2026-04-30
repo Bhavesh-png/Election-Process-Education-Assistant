@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import fs from 'fs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -15,10 +16,16 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 // Handle any requests by sending back index.html (for SPA routing)
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  const filePath = path.join(__dirname, 'dist', 'index.html');
+  
+  if (fs.existsSync(filePath)) {
+    res.sendFile(filePath);
+  } else {
+    // Safety check: Prevent crash if dist is missing
+    res.status(200).send('Election Guide AI: Server is UP, but the "dist" folder is missing. Please ensure "npm run build" is executed.');
+  }
 });
 
-// IMPORTANT: Bind to 0.0.0.0 for Cloud Run
 app.listen(port, "0.0.0.0", () => {
   console.log(`Server is running on port ${port}`);
   console.log(`Listening on http://0.0.0.0:${port}`);
