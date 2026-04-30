@@ -1,0 +1,83 @@
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.timeline-item {
+  display: flex;
+  min-height: 80px;
+}
+
+.timeline-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  width: 30px;
+}
+
+.marker-dot {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--text-light);
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.marker-dot.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+  box-shadow: 0 0 10px rgba(79, 70, 229, 0.4);
+}
+
+.marker-line {
+  width: 2px;
+  flex-grow: 1;
+  background: var(--border-color);
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.timeline-content {
+  flex-grow: 1;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateX(5px);
+  border-color: var(--primary-color);
+}
+
+.timeline-content.expanded {
+  border-left: 4px solid var(--primary-color);
+  box-shadow: var(--shadow-md);
+}
+
+.timeline-content h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+}
+
+.timeline-desc {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}

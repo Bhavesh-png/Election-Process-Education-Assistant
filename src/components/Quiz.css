@@ -1,0 +1,129 @@
+.quiz-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.question-section {
+  margin-bottom: 24px;
+}
+
+.question-count {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.question-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.4;
+}
+
+.answer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.quiz-btn {
+  width: 100%;
+  padding: 14px 20px;
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: var(--font-family);
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+  font-weight: 500;
+}
+
+.quiz-btn:hover:not(:disabled) {
+  border-color: var(--primary-color);
+  background: var(--bg-gradient-start);
+  transform: translateX(5px);
+}
+
+.quiz-btn.correct {
+  background-color: #d1fae5;
+  border-color: #10b981;
+  color: #065f46;
+}
+
+.quiz-btn.incorrect {
+  background-color: #fee2e2;
+  border-color: #ef4444;
+  color: #991b1b;
+}
+
+.score-section {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.score-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--bg-gradient-start);
+  border: 4px solid var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-light);
+  box-shadow: 0 0 20px rgba(79, 70, 229, 0.2);
+}
+
+.score-circle span {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-right: 5px;
+}
+
+.score-msg {
+  font-size: 1.2rem;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.mt-4 {
+  margin-top: 1.5rem;
+}
+
+.explanation-box {
+  margin-top: 24px;
+  padding: 16px;
+  background: rgba(79, 70, 229, 0.05);
+  border-left: 4px solid var(--primary-color);
+  border-radius: 4px 12px 12px 4px;
+  animation: slideUp 0.3s ease-out;
+}
+
+.explanation-box strong {
+  display: block;
+  color: var(--primary-color);
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.explanation-box p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
